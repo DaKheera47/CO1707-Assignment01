@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    width: 100vw;
+    background-color: firebrick;
+    height: 100px;
+
+    align-items: center;
+    padding: 0 50px;
+}
+
+.logo {
+    height: 50px;
+}
+
+nav {
+    display: flex;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    align-items: center;
+}
+
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navLeftContainer {
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.navHeading {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 0 0 20px;
+}
+
+.myNav {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.navList {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.1em;
+    margin: 1.2em;
+}
+
+.navList a {
+    text-decoration: none;
+    color: ghostwhite;
+}
+
+.navList a:hover {
+    color: gainsboro;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    margin: 10px auto;
+}
+
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 1em;
+}
+
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 1em;
+}
+
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+/* Footer */
+.footer {
+    padding: 2em;
+    text-align: center;
+    background: #ddd;
+}
+
+.mySubNav {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.subNavList {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.1em;
+    margin: 2em;
+    flex: 1;
+}
+
+.subnavList a {
+    text-decoration: none;
+    background-color: #ccc;
+    color: #000;
+    display: block;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 0.5em;
+}
+
+.subnavList a:hover {
+    background-color: #bbb;
+}

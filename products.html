@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="productsStyle.css" />
+        <!-- link to the stylesheet -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>View our products</title>
+    </head>
+    <body>
+        <header class="topnav" id="myTopnav">
+            <div class="navLeftContainer">
+                <img class="logo" src="./images/uclan.png" alt="UCLan logo" />
+                <h3 class="navHeading">UCLan Student Shop</h3>
+            </div>
+
+            <ul class="myNav">
+                <li class="navList"><a href="index.html">Home</a></li>
+                <li class="navList"><a href="products.html">Products</a></li>
+                <li class="navList">
+                    <a href="cart.html">Cart</a>
+                </li>
+            </ul>
+        </header>
+
+        <main>
+            <h2>List of all Products</h2>
+
+            <div class="category-container">
+                <a href="#hoodieList" class="category-btn">Hoodies</a>
+                <a href="#jumperList" class="category-btn">Jumpers</a>
+                <a href="#tShirtList" class="category-btn">T-Shirts</a>
+            </div>
+
+            <!-- these get populated by js -->
+            <h1>Hoodies</h1>
+            <div class="productContainer" id="hoodieList"></div>
+
+            <h1>Jumpers</h1>
+            <div class="productContainer" id="jumperList"></div>
+
+            <h1>T-Shirts</h1>
+            <div class="productContainer" id="tShirtList"></div>
+        </main>
+
+        <!-- back to top button -->
+        <a id="goToTop" onclick="scrollToTop()"> Go To Top </a>
+
+        <script type="text/javascript" src="productsJs.js"></script>
+    </body>
+</html>
