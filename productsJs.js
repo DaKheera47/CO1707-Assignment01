@@ -782,16 +782,24 @@ function makeProductLists() {
         let productString = JSON.stringify(product);
 
         productItem.innerHTML = `
-        <div class="card" onclick='saveItem(${productString})'>
-            <img
-                src="${product[4]}"
-                alt="${product[2]}"
-            />
-            <h3>${product[0]}</h3>
-            <p class="color">${product[1]}</p>
-            <p class="price">${product[3]}</p>
-            <p>${product[2]}</p>
-            <a class="productCardBtn" onclick='saveItem(${productString})'>Add to Cart</a>
+        <div class="card">
+            <div class="cardDetails">
+                <img
+                    src="${product[4]}"
+                    alt="${product[2]}"
+                />
+                <h3>${product[0]}</h3>
+                <p class="color">${product[1]}</p>
+                <p class="price">${product[3]}</p>
+                <p>${product[2]}</p>
+
+                <a class="viewMore" onclick='saveItem(${productString})'>
+                    View More About This Product
+                </a>
+            </div>
+            <a class="productCardBtn" onclick='addToCard(${productString})'>
+                Add to Cart
+            </a>
         </div>
         `;
 
@@ -807,16 +815,24 @@ function makeProductLists() {
         let productString = JSON.stringify(product);
 
         productItem.innerHTML = `
-        <div class="card" onclick='saveItem(${productString})'>
-            <img
-                src="${product[4]}"
-                alt="${product[2]}"
-            />
-            <h3>${product[0]}</h3>
-            <p class="color">${product[1]}</p>
-            <p class="price">${product[3]}</p>
-            <p>${product[2]}</p>
-            <a class="productCardBtn" onclick='saveItem(${productString})'>Add to Cart</a>
+        <div class="card">
+            <div class="cardDetails">
+                <img
+                    src="${product[4]}"
+                    alt="${product[2]}"
+                />
+                <h3>${product[0]}</h3>
+                <p class="color">${product[1]}</p>
+                <p class="price">${product[3]}</p>
+                <p>${product[2]}</p>
+
+                <a class="viewMore" onclick='saveItem(${productString})'>
+                    View More About This Product
+                </a>
+            </div>
+            <a class="productCardBtn" onclick='addToCard(${productString})'>
+                Add to Cart
+            </a>
         </div>
         `;
 
@@ -832,16 +848,24 @@ function makeProductLists() {
         let productString = JSON.stringify(product);
 
         productItem.innerHTML = `
-        <div class="card" onclick='saveItem(${productString})'>
-            <img
-                src="${product[4]}"
-                alt="${product[2]}"
-            />
-            <h3>${product[0]}</h3>
-            <p class="color">${product[1]}</p>
-            <p class="price">${product[3]}</p>
-            <p>${product[2]}</p>
-            <a class="productCardBtn" onclick='saveItem(${productString})'>Add to Cart</a>
+        <div class="card">
+            <div class="cardDetails">
+                <img
+                    src="${product[4]}"
+                    alt="${product[2]}"
+                />
+                <h3>${product[0]}</h3>
+                <p class="color">${product[1]}</p>
+                <p class="price">${product[3]}</p>
+                <p>${product[2]}</p>
+
+                <a class="viewMore" onclick='saveItem(${productString})'>
+                    View More About This Product
+                </a>
+            </div>
+            <a class="productCardBtn" onclick='addToCard(${productString})'>
+                Add to Cart
+            </a>
         </div>
         `;
 
@@ -851,6 +875,7 @@ function makeProductLists() {
 
 makeProductLists();
 
+// saves the item to session storage
 function saveItem(item) {
     item = JSON.stringify(item);
     console.log(item);
@@ -858,6 +883,21 @@ function saveItem(item) {
     window.location.href = "item.html";
 }
 
+// add to cart
+function addToCard(item) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    if (cart == null) {
+        cart = [];
+    }
+
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    console.log(cart);
+}
+
+// scroll to top
 let goToTopBtn = document.getElementById("goToTop");
 
 window.onscroll = function () {
