@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="productsStyle.css" />
         <link rel="stylesheet" href="cartStyle.css" />
-        <link rel="stylesheet" href="itemStyle.css" />
         <title>View Your Cart - UCLan Student Shop</title>
     </head>
     <body>
@@ -27,6 +26,28 @@
 
         <main>
             <div id="displayCart"></div>
+            <div class="cartContainer">
+                <div class="header">
+                    <h3 class="heading">Shopping Cart</h3>
+                    <h5 class="action" onclick="removeAllItems()">
+                        Remove all
+                    </h5>
+                </div>
+
+                <div id="cartItemsList"></div>
+
+                <hr />
+
+                <div class="checkout">
+                    <div class="total">
+                        <div>
+                            <div class="items" id="numItems"></div>
+                        </div>
+                        <div class="total-amount" id="totalPrice"></div>
+                    </div>
+                    <a class="category-btn">Checkout</a>
+                </div>
+            </div>
         </main>
 
         <script src="cartJs.js"></script>
