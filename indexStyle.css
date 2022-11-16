@@ -1,6 +1,5 @@
-* {
-    box-sizing: border-box;
-}
+/* importing the font to use from google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 
 html {
     --primary-red: #bc1c26;
@@ -21,9 +20,11 @@ html {
     scroll-behavior: smooth;
 }
 
-/* slight animation on every change to make the website feel smooth */
 * {
-    transition: all 200ms ease-in-out;
+    box-sizing: border-box;
+    /* slight animation on every change to make the website feel smooth */
+    /* transition only the color and background-color properties */
+    transition: color 0.2s ease-in, background-color 0.2s ease-in;
 }
 
 a {
@@ -31,7 +32,7 @@ a {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
 }
 
