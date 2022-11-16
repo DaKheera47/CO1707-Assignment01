@@ -51,16 +51,27 @@ header {
     height: 50px;
 }
 
+.navHeading {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+    margin: 0 0 0 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .logo {
+        height: 30px;
+    }
+
+    .navHeading {
+        font-size: 0.8rem;
+    }
+}
+
 .navLeftContainer {
     max-height: 50px;
     display: flex;
     align-items: center;
-}
-
-.navHeading {
-    font-size: 1.2rem;
-    color: white;
-    margin: 0 0 0 20px;
 }
 
 .myNav {
@@ -89,10 +100,6 @@ header {
     .navLeftContainer {
         width: 100%;
         justify-content: start;
-    }
-
-    .navHeading {
-        margin-left: 50px;
     }
 
     .hamburger {
