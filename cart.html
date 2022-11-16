@@ -5,23 +5,56 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="productsStyle.css" />
+        <link rel="stylesheet" type="text/css" href="indexStyle.css" />
         <link rel="stylesheet" href="cartStyle.css" />
         <title>View Your Cart - UCLan Student Shop</title>
     </head>
     <body>
-        <header class="topnav" id="myTopnav">
-            <div class="navLeftContainer">
-                <img class="logo" src="./images/uclan.png" alt="UCLan logo" />
-                <h3 class="navHeading">UCLan Student Shop</h3>
-            </div>
+        <header>
+            <nav class="desktopNav">
+                <div class="navLeftContainer">
+                    <img
+                        class="logo"
+                        src="./images/uclan.png"
+                        alt="UCLan logo"
+                    />
+                    <h3 class="navHeading">UCLan Student Shop</h3>
+                </div>
 
-            <ul class="myNav">
-                <li class="navList"><a href="index.html">Home</a></li>
-                <li class="navList"><a href="products.html">Products</a></li>
-                <li class="navList">
-                    <a href="cart.html">Cart</a>
-                </li>
-            </ul>
+                <ul class="myNav">
+                    <li class="navList"><a href="index.html">Home</a></li>
+                    <li class="navList">
+                        <a href="products.html">Products</a>
+                    </li>
+                    <li class="navList">
+                        <a href="cart.html">Cart</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- mobile nav -->
+            <nav class="mobileNav">
+                <div class="navLeftContainer">
+                    <img
+                        class="logo"
+                        src="./images/uclan.png"
+                        alt="UCLan logo"
+                    />
+                    <h3 class="navHeading">UCLan Student Shop</h3>
+                </div>
+
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <div class="hamburger" onclick="toggleHamMenu()">
+                    <img src="hamburger.svg" alt="hamburger menu" />
+                </div>
+
+                <!-- Navigation links (hidden by default) -->
+                <div id="myLinks">
+                    <a class="mobNavLink" href="index.html">Home</a>
+                    <a class="mobNavLink" href="products.html">Products</a>
+                    <a class="mobNavLink" href="cart.html">Cart</a>
+                </div>
+            </nav>
         </header>
 
         <main>
@@ -50,6 +83,7 @@
             </div>
         </main>
 
+        <script src="navbar.js"></script>
         <script src="cartJs.js"></script>
     </body>
 </html>

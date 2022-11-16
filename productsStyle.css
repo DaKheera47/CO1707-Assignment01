@@ -7,75 +7,6 @@ body {
     margin: 0;
 }
 
-header {
-    display: flex;
-    width: 100vw;
-    background-color: firebrick;
-    height: 100px;
-
-    align-items: center;
-    padding: 0 50px;
-}
-
-.logo {
-    height: 50px;
-}
-
-nav {
-    display: flex;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    align-items: center;
-}
-
-.topnav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navLeftContainer {
-    max-height: 50px;
-    display: flex;
-    align-items: center;
-}
-
-.navHeading {
-    font-size: 1.5rem;
-    color: white;
-    margin: 0 0 0 20px;
-}
-
-.myNav {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-}
-
-.navList {
-    text-align: center;
-    font-size: 1.5em;
-    padding: 0.1em;
-    margin: 1.2em;
-}
-
-.navList a {
-    text-decoration: none;
-    color: ghostwhite;
-}
-
-.navList a:hover {
-    color: gainsboro;
-}
-
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -117,7 +48,7 @@ main {
     margin-top: 20px;
     padding: 12px;
     color: white;
-    background-color: #000;
+    background-color: var(--primary-red);
     cursor: pointer;
     width: 100%;
     font-size: 18px;
@@ -143,27 +74,34 @@ main {
 
 .category-btn {
     border-radius: 50px;
-    background-color: #f1f1f1;
+    background-color: var(--primary-red);
     border: none;
-    color: black;
-    padding: 15px 32px;
+    color: white;
+    padding: 12px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 14px;
+    margin: 2px;
     cursor: pointer;
 }
 
 .category-btn:hover {
-    background-color: #ddd;
+    opacity: 0.7;
 }
 
 .category-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    /* flex-direction: column; */
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
 
 #goToTop {
@@ -173,9 +111,9 @@ main {
     right: 30px;
     z-index: 50;
     border-radius: 50px;
-    background-color: #f1f1f1;
+    background-color: var(--primary-red);
     border: none;
-    color: black;
+    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -186,7 +124,7 @@ main {
 }
 
 #goToTop:hover {
-    background-color: #ddd;
+    opacity: 0.7;
 }
 
 body {
