@@ -58,6 +58,19 @@ header {
     margin: 0 0 0 20px;
 }
 
+.videoPlayer {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    min-height: fit-content;
+    aspect-ratio: 16 / 9;
+}
+
+.video-description {
+    color: var(--gold);
+    text-align: left;
+}
+
 @media screen and (max-width: 500px) {
     .logo {
         height: 30px;
@@ -128,11 +141,14 @@ header {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 90vw;
     margin: 10px auto;
+}
+
+.page-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-grey);
 }
 
 .side {
