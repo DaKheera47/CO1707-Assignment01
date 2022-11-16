@@ -771,103 +771,83 @@ let tshirts = [
     ],
 ];
 
+// make html of products
+function productCardHtml(product, productString, productInCart = false) {
+    return `
+<div class="card">
+    <div class="cardDetails">
+        <img
+            src="${product[4]}"
+            alt="${product[2]}"
+        />
+        <h3>${product[0]}</h3>
+        <p class="color">${product[1]}</p>
+        <p class="price">${product[3]}</p>
+        <p>${product[2]}</p>
+
+        <a class="viewMore" onclick='saveItem(${productString})'>
+            View More About This Product
+        </a>
+    </div>
+    <a class="productCardBtn" style='${productInCart ? "background-color: var(--grass);" : ""}' onclick='addToCart(${productString})'>
+        ${productInCart ? "Already In Cart. Add More!" : "Add To Cart!"}
+    </a>
+</div>
+`;
+}
+
 // make product list
 function makeProductLists() {
     let hoodieList = document.getElementById("hoodieList");
+    let listWithCartItems = checkInCart(hoodies);
 
     for (let i = 0; i < hoodies.length; i++) {
         let product = hoodies[i];
         let productItem = document.createElement("div");
-
         let productString = JSON.stringify(product);
 
-        productItem.innerHTML = `
-        <div class="card">
-            <div class="cardDetails">
-                <img
-                    src="${product[4]}"
-                    alt="${product[2]}"
-                />
-                <h3>${product[0]}</h3>
-                <p class="color">${product[1]}</p>
-                <p class="price">${product[3]}</p>
-                <p>${product[2]}</p>
-
-                <a class="viewMore" onclick='saveItem(${productString})'>
-                    View More About This Product
-                </a>
-            </div>
-            <a class="productCardBtn" onclick='addToCard(${productString})'>
-                Add to Cart
-            </a>
-        </div>
-        `;
+        // if item is in cart, it will display different text
+        productItem.innerHTML = productCardHtml(
+            product,
+            productString,
+            product[5]
+        );
 
         hoodieList.appendChild(productItem);
     }
 
     let jumperList = document.getElementById("jumperList");
+    listWithCartItems = checkInCart(jumpers);
 
     for (let i = 0; i < jumpers.length; i++) {
         let product = jumpers[i];
         let productItem = document.createElement("div");
-
         let productString = JSON.stringify(product);
 
-        productItem.innerHTML = `
-        <div class="card">
-            <div class="cardDetails">
-                <img
-                    src="${product[4]}"
-                    alt="${product[2]}"
-                />
-                <h3>${product[0]}</h3>
-                <p class="color">${product[1]}</p>
-                <p class="price">${product[3]}</p>
-                <p>${product[2]}</p>
-
-                <a class="viewMore" onclick='saveItem(${productString})'>
-                    View More About This Product
-                </a>
-            </div>
-            <a class="productCardBtn" onclick='addToCard(${productString})'>
-                Add to Cart
-            </a>
-        </div>
-        `;
+        // if item is in cart, it will display different text
+        productItem.innerHTML = productCardHtml(
+            product,
+            productString,
+            product[5]
+        );
 
         jumperList.appendChild(productItem);
     }
 
     let tShirtList = document.getElementById("tShirtList");
+    listWithCartItems = checkInCart(tshirts);
 
     for (let i = 0; i < tshirts.length; i++) {
         let product = tshirts[i];
         let productItem = document.createElement("div");
-
         let productString = JSON.stringify(product);
 
-        productItem.innerHTML = `
-        <div class="card">
-            <div class="cardDetails">
-                <img
-                    src="${product[4]}"
-                    alt="${product[2]}"
-                />
-                <h3>${product[0]}</h3>
-                <p class="color">${product[1]}</p>
-                <p class="price">${product[3]}</p>
-                <p>${product[2]}</p>
-
-                <a class="viewMore" onclick='saveItem(${productString})'>
-                    View More About This Product
-                </a>
-            </div>
-            <a class="productCardBtn" onclick='addToCard(${productString})'>
-                Add to Cart
-            </a>
-        </div>
-        `;
+        // if item is in cart, it will display different text
+        productItem.innerHTML = productCardHtml(
+            product,
+            productString,
+            product[5]
+        );
 
         tShirtList.appendChild(productItem);
     }
@@ -883,8 +863,37 @@ function saveItem(item) {
     window.location.href = "item.html";
 }
 
+// get cart
+function checkInCart(productCategory) {
+    let cart = localStorage.getItem("cart");
+    if (cart == null) {
+        cart = [];
+    } else {
+        cart = JSON.parse(cart);
+    }
+
+    // append one to every product that is in cart and in product list
+    for (let i = 0; i < cart.length; i++) {
+        let product = cart[i];
+
+        for (let j = 0; j < productCategory.length; j++) {
+            let productItem = productCategory[j];
+
+            // check item image urls to make sure they are the same
+            if (product[4] === productItem[4]) {
+                // true means that the product is in the cart
+                productItem[5] = true;
+                console.log(productItem);
+            }
+        }
+    }
+
+    console.log(productCategory);
+    return productCategory;
+}
+
 // add to cart
-function addToCard(item) {
+function addToCart(item) {
     let cart = JSON.parse(localStorage.getItem("cart"));
 
     if (cart == null) {
@@ -894,7 +903,8 @@ function addToCard(item) {
     cart.push(item);
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    console.log(cart);
+    // reload page to update added to cart text
+    location.reload();
 }
 
 // scroll to top
