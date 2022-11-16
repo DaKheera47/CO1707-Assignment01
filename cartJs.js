@@ -71,6 +71,9 @@ function calculateTotal() {
         var price = cart[i][3].replace(/[^0-9.-]+/g, "");
         total += parseFloat(price);
     }
+
+    // round to 2 decimals
+    total = total.toFixed(2);
     return total;
 }
 
