@@ -32,6 +32,14 @@ for (var i = 0; i < cart.length; i++) {
 
 // if cart is empty, show empty cart message
 if (cart.length == 0) {
+
+    // disable checkout button
+    document.getElementById("checkoutButton").disabled = true;
+
+    // remove the remove all button
+    document.getElementsByClassName("header")[0].style.display = "none";
+
+    // show empty cart message
     document.getElementById("cartItemsList").innerHTML = `
     <div class="empty-cart">
         <h1 class="title">Your cart is empty</h1>

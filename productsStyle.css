@@ -90,6 +90,23 @@ main {
     opacity: 0.7;
 }
 
+.category-btn:focus {
+    outline: none;
+}
+
+.category-btn:active {
+    opacity: 0.7;
+}
+
+.category-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    outline: 1px solid var(--primary-grey);
+    background-color: white;
+    color: var(--primary-grey);
+}
+
 .category-container {
     display: flex;
     justify-content: center;
