@@ -59,6 +59,7 @@ generateCartItems();
 function removeAllItems() {
     localStorage.setItem("cart", "[]");
     generateCartItems();
+    calculateTotal();
 }
 
 // removes item from cart
@@ -97,23 +98,27 @@ function calculateTotal() {
 
     // if cart is empty, show empty cart message
     if (cart.length == 0) {
-        document.getElementById("total").innerHTML = `
-        <div class="total"></div>
-`;
+        document.getElementById("totalPrice").innerHTML = "";
+        document.getElementById("numItems").innerHTML = "";
 
-        for (let i = 0; i < cart.length; i++) {
-            // https://stackoverflow.com/questions/30607419/return-only-numbers-from-string
-            let price = cart[i][3].replace(/[^0-9.-]+/g, "");
-            total += parseFloat(price);
-        }
-
-        // round to 2 decimals
-        total = total.toFixed(2);
-
-        // show total price
-        // adds the total price to the cart
-        document.getElementById("totalPrice").innerHTML = `£${total}`;
-        // set the total number of items in the cart
-        document.getElementById("numItems").innerHTML = `${cart.length} items`;
+        return;
     }
+
+    for (let i = 0; i < cart.length; i++) {
+        // https://stackoverflow.com/questions/30607419/return-only-numbers-from-string
+        let price = cart[i][3].replace(/[^0-9.-]+/g, "");
+        total += parseFloat(price);
+    }
+
+    // round to 2 decimals
+    total = total.toFixed(2);
+
+    // show total price
+    // adds the total price to the cart
+    document.getElementById("totalPrice").innerHTML = `£${total}`;
+    // set the total number of items in the cart
+    document.getElementById("numItems").innerHTML = `${cart.length} items`;
 }
+
+// calculates the total price of the cart on page load
+calculateTotal();
