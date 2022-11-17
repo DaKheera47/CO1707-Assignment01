@@ -22,9 +22,6 @@ html {
 
 * {
     box-sizing: border-box;
-    /* slight animation on every change to make the website feel smooth */
-    /* transition only the color and background-color properties */
-    transition: color 0.2s ease-in, background-color 0.2s ease-in;
 }
 
 a {
@@ -129,6 +126,8 @@ header {
 .navList a {
     text-decoration: none;
     color: ghostwhite;
+
+    transition: color 0.2s ease-in, background-color 0.2s ease-in;
 }
 
 .navList a:hover {

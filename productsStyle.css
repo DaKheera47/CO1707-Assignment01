@@ -54,6 +54,8 @@ main {
     font-size: 18px;
     display: inline-block;
     border-radius: 0 0 10px 10px;
+
+    transition: all 150ms ease-in;
 }
 
 .card img {
@@ -84,6 +86,8 @@ main {
     font-size: 14px;
     margin: 2px;
     cursor: pointer;
+
+    transition: all 150ms ease-in;
 }
 
 .category-btn:hover {
@@ -139,6 +143,8 @@ main {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+
+    transition: color 150ms ease-in, background-color 150ms ease-in;
 }
 
 #goToTop:hover {
