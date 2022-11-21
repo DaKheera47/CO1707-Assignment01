@@ -789,7 +789,9 @@ function productCardHtml(product, productString, productInCart = false) {
             View More About This Product
         </a>
     </div>
-    <a class="productCardBtn" style='${productInCart ? "background-color: var(--grass);" : ""}' onclick='addToCart(${productString})'>
+    <a class="productCardBtn" style='${
+        productInCart ? "background-color: var(--grass);" : ""
+    }' onclick='addToCart(${productString})'>
         ${productInCart ? "Already In Cart. Add More!" : "Add To Cart!"}
     </a>
 </div>
@@ -799,6 +801,7 @@ function productCardHtml(product, productString, productInCart = false) {
 // make product list
 function makeProductLists() {
     let hoodieList = document.getElementById("hoodieList");
+    hoodieList.innerHTML = "";
     let listWithCartItems = checkInCart(hoodies);
 
     for (let i = 0; i < hoodies.length; i++) {
@@ -817,6 +820,7 @@ function makeProductLists() {
     }
 
     let jumperList = document.getElementById("jumperList");
+    jumperList.innerHTML = "";
     listWithCartItems = checkInCart(jumpers);
 
     for (let i = 0; i < jumpers.length; i++) {
@@ -835,6 +839,7 @@ function makeProductLists() {
     }
 
     let tShirtList = document.getElementById("tShirtList");
+    tShirtList.innerHTML = "";
     listWithCartItems = checkInCart(tshirts);
 
     for (let i = 0; i < tshirts.length; i++) {
@@ -904,7 +909,7 @@ function addToCart(item) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     // reload page to update added to cart text
-    location.reload();
+    makeProductLists();
 }
 
 // scroll to top
