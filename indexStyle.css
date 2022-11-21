@@ -35,7 +35,7 @@ body {
 
 header {
     display: flex;
-    width: 100vw;
+    width: 100%;
     background-color: var(--primary-red);
     height: 5vh;
     min-height: 75px;
@@ -243,4 +243,38 @@ main {
         align-items: center;
         width: 100%;
     }
+}
+
+.text-white {
+    color: white;
+}
+
+footer {
+    width: 100%;
+    padding: 4vh 10vw;
+    min-height: 75px;
+    background-color: var(--primary-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: white;
+}
+
+@media only screen and (max-width: 900px) {
+    footer {
+        flex-direction: column;
+    }
+}
+
+footer a {
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    margin-top: auto;
 }
