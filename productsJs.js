@@ -790,9 +790,9 @@ function productCardHtml(product, productString, productInCart = false) {
         </a>
     </div>
     <a class="productCardBtn" style='${
-        productInCart ? "background-color: var(--grass);" : ""
+        productInCart ? "background-color: var(--primary-green);" : ""
     }' onclick='addToCart(${productString})'>
-        ${productInCart ? "Already In Cart. Add More!" : "Add To Cart!"}
+        ${productInCart ? "Added to cart! Add More!" : "Add To Cart!"}
     </a>
 </div>
 `;
