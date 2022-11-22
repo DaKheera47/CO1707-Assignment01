@@ -7,11 +7,6 @@ body {
     margin: 0;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 main {
     display: flex;
     flex-direction: column;
