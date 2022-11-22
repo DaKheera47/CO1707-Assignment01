@@ -74,6 +74,9 @@ function removeItem(item) {
         if (cart[i][4] == item[4]) {
             // remove item from cart
             cart.splice(i, 1);
+
+            // remove only one item at maximum
+            break;
         }
     }
 
