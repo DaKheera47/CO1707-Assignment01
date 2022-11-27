@@ -119,7 +119,7 @@ main {
     /* flex-direction: column; */
     width: 100%;
     position: sticky;
-    top: 0;
+    top: max(5vh, 75px);
     background-color: white;
     padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
