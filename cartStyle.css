@@ -34,7 +34,7 @@ main {
     align-items: center;
 
     position: sticky;
-    top: 0;
+    top: max(5vh, 75px);
 
     background-color: white;
 }
