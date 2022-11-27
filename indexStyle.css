@@ -33,10 +33,20 @@ body {
     margin: 0;
 }
 
+.video-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 header {
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 10;
 
     display: flex;
     width: 100%;
@@ -69,7 +79,8 @@ header {
 
 .video-description {
     color: var(--gold);
-    text-align: left;
+    text-align: center;
+    width: 100%;
 }
 
 @media screen and (max-width: 500px) {
