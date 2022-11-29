@@ -29,6 +29,7 @@ function generateCartItems() {
         let product = cart[i];
         let productString = JSON.stringify(product);
 
+        // cart html template, with product info changed
         document.getElementById("cartItemsList").innerHTML += `
         <div class="cartItem">
             <div class="image-box">
@@ -52,21 +53,19 @@ function generateCartItems() {
     }
 }
 
-// generate cart items on page load
-generateCartItems();
-
 // remove all items from cart
+// called on click of the remove all button
 function removeAllItems() {
     localStorage.setItem("cart", "[]");
     generateCartItems();
     calculateTotal();
 }
 
-// removes item from cart
+// removes just one item from cart
 function removeItem(item) {
-    // https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
     let cart = JSON.parse(localStorage.getItem("cart"));
 
+    // https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
     // check if item is in cart and remove it
     // loop through cart
     for (let i = 0; i < cart.length; i++) {
@@ -75,35 +74,40 @@ function removeItem(item) {
             // remove item from cart
             cart.splice(i, 1);
 
-            // remove only one item at maximum
+            // remove only one item at maximum, to prevent duplicate deletion
             break;
         }
     }
 
+    // update cart in local storage
     localStorage.setItem("cart", JSON.stringify(cart));
 
+    // regenerate updated cart items
     generateCartItems();
     calculateTotal();
 }
 
 // saves the item to session storage
-function saveItem(item) {
+function saveItemToSessionStorage(item) {
     item = JSON.stringify(item);
-    console.log(item);
+    // save item to session storage
     sessionStorage.setItem("product", item);
+    // redirect to item page
     window.location.href = "item.html";
 }
 
 // calculates the total price of the cart
 function calculateTotal() {
     let cart = JSON.parse(localStorage.getItem("cart"));
+    // initially set total to 0
     let total = 0;
 
-    // if cart is empty, show empty cart message
+    // if cart is empty, hide the total price and number of items
     if (cart == null || cart.length == 0) {
         document.getElementById("totalPrice").innerHTML = "";
         document.getElementById("numItems").innerHTML = "";
 
+        // end execution of function
         return;
     }
 
@@ -125,3 +129,6 @@ function calculateTotal() {
 
 // calculates the total price of the cart on page load
 calculateTotal();
+
+// generate cart items on page load
+generateCartItems();
