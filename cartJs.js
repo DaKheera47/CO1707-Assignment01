@@ -3,7 +3,7 @@ function generateCartItems() {
     let cart = JSON.parse(localStorage.getItem("cart"));
 
     // if cart is empty, show empty cart message
-    if (cart.length == 0) {
+    if (cart == null || cart.length == 0) {
         // disable checkout button
         document.getElementById("checkoutButton").disabled = true;
 
@@ -100,7 +100,7 @@ function calculateTotal() {
     let total = 0;
 
     // if cart is empty, show empty cart message
-    if (cart.length == 0) {
+    if (cart == null || cart.length == 0) {
         document.getElementById("totalPrice").innerHTML = "";
         document.getElementById("numItems").innerHTML = "";
 
