@@ -168,7 +168,7 @@ main {
     justify-content: space-between;
 }
 
-.mobileNav #myLinks {
+.mobileNav #mobileNavLinks {
     display: none;
     position: absolute;
     background-color: var(--primary-red);
